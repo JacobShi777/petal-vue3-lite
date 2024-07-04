@@ -11,8 +11,6 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       // 服务器启动后自动在浏览器中打开应用
       open: true,
     },
-    plugins: [
-      vue(),
-    ],
+    plugins: [vue()],
   }
 })

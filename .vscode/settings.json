@@ -1,0 +1,11 @@
+{
+  // eslint的配置
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always"
+  },
+
+  // prettier的配置
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode" // 将prettier设置为默认格式化工具
+}
