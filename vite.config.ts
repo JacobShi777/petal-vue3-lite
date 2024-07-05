@@ -1,5 +1,7 @@
 import { type ConfigEnv, defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 export default defineConfig(({ mode }: ConfigEnv) => {
   return {
@@ -11,6 +13,19 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       // 服务器启动后自动在浏览器中打开应用
       open: true,
     },
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      createSvgIconsPlugin({
+        /** 指定需要缓存的svg图标文件夹，即需要识别的svg都应该放在这个文件夹下 */
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+        // 指定symbolId格式
+        symbolId: 'icon-[dir]-[name]',
+      }),
+    ],
+    resolve: {
+      alias: {
+        '@': '/src',
+      },
+    },
   }
 })
