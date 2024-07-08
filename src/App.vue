@@ -1,5 +1,10 @@
 <script lang="ts" setup>
-import 'vue-router'
+// 这个千万不要引入
+// import { ElMessage } from 'element-plus'
+
+const handleClick = () => {
+  ElMessage.success('Hello World!')
+}
 </script>
 
 <template>
@@ -12,6 +17,7 @@ import 'vue-router'
       <router-link to="/">Go to Dashboard</router-link>
     </nav>
     <router-view />
+    <el-button @click="handleClick" type="primary">点击</el-button>
   </div>
 </template>
 
