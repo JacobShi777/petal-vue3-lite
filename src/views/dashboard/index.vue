@@ -10,8 +10,9 @@ const handleConfirm = () => {
   <div>
     <h1>Dashboard</h1>
     <LocaleSwitch />
-    <el-button type="primary" @click="handleConfirm">{{ t('common.action.confirm') }}</el-button>
+    <el-button type="primary" @click="handleConfirm">{{ $t('common.action.confirm') }}</el-button>
     <el-date-picker type="date" />
+    <ThemeSwitch />
   </div>
 </template>
 

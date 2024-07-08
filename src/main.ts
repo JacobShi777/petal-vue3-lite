@@ -7,6 +7,7 @@ import SvgIcon from '@/components/SvgIcon/index.vue'
 import router from '@/router'
 import store from '@/store'
 import i18n from '@/locales'
+import '@/styles/index.scss'
 
 // 使用createApp创建Vue应用实例，并传入根组件App
 const app = createApp(App)
