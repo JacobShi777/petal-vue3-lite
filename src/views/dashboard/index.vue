@@ -1,12 +1,17 @@
 <script lang="ts" setup>
-import { useUserStore } from '@/store/user'
-const userStore = useUserStore()
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+const handleConfirm = () => {
+  ElMessage.success(t('common.theme.light'))
+}
 </script>
 
 <template>
   <div>
     <h1>Dashboard</h1>
-    {{ userStore.token || '-' }} in Dashboard
+    <LocaleSwitch />
+    <el-button type="primary" @click="handleConfirm">{{ t('common.action.confirm') }}</el-button>
+    <el-date-picker type="date" />
   </div>
 </template>
 

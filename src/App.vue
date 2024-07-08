@@ -1,24 +1,20 @@
 <script lang="ts" setup>
-// 这个千万不要引入
-// import { ElMessage } from 'element-plus'
+import { computed } from 'vue'
+import { useLocaleStore } from '@/store/locale'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import en from 'element-plus/es/locale/lang/en'
 
-const handleClick = () => {
-  ElMessage.success('Hello World!')
-}
+const localeStore = useLocaleStore()
+const locale = computed(() => (localeStore.locale === 'zh-cn' ? zhCn : en))
 </script>
 
 <template>
-  <div>
-    <div>App</div>
-    <svg-icon name="dashboard" />
-    <nav>
-      <router-link to="/login">Go to Login</router-link>
-      &nbsp;|&nbsp;
-      <router-link to="/">Go to Dashboard</router-link>
-    </nav>
+  <nav>
+    <router-link to="/login">Go to Login</router-link>
+    &nbsp;|&nbsp;
+    <router-link to="/">Go to Dashboard</router-link>
+  </nav>
+  <el-config-provider :locale="locale">
     <router-view />
-    <el-button @click="handleClick" type="primary">点击</el-button>
-  </div>
+  </el-config-provider>
 </template>
-
-<style lang="scss" scoped></style>
